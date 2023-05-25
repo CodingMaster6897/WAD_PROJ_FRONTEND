@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import CurrencyFormat from "react-currency-format";
 import styled from "styled-components";
 import axios from "axios";
 import Stripe from "stripe";
@@ -64,20 +63,12 @@ const Payment = () => {
           </OrderContainer>
         </ReviewContainer>
         <Subtotal>
-          <CurrencyFormat
-            renderText={(value) => (
-              <>
-                <p>
-                  Subtotal ( {products.length} items ) :{" "}
-                  <strong> {totalPrice} ₹</strong>
-                </p>
-              </>
-            )}
-            decimalScale={2}
-            displayType="text"
-            thousandSeparator={true}
-            prefix={"₹ "}
-          />
+          <>
+            <p>
+              Subtotal ( {products.length} items ) :{" "}
+              <strong> {totalPrice} ₹</strong>
+            </p>
+          </>
           {/* <Stripe/> */}
 
           <button onClick={checkout}>Place Order</button>
